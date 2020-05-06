@@ -61,17 +61,24 @@ print(calculateBMI(weight: 76.5 , height: 1.70))
 //**************STRUCTURES**********************
 
 struct MyTown {
-    let name = "Planeta Rica"
-    var citizens = ["Emerson", "Tatiana", "Mónica"]
-    var resources = ["Grain": 100, "Ore": 420, "wool": 500]
+    let name: String
+    var citizens: [String]
+    var resources: [String: Int]
+    
+    init(nameTown: String, people: [String], stats: [String: Int]) {
+        name = nameTown
+        citizens = people
+        resources = stats
+    }
     
     func fortity() {
         print("Defences increased!")
     }
 }
 
-var myTown = MyTown()
-
+var myTown = MyTown(nameTown: "Planeta Rica", people: ["Emerson", "Tatiana", "Mónica"], stats: ["Grain": 100, "Ore": 420, "wool": 500])
 print(myTown.citizens)
 print("\(myTown.name) has \(myTown.resources["Grain"]!) bags of grains")
+myTown.citizens.append("Roger")
+print(myTown.citizens)
 myTown.fortity()
